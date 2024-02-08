@@ -2,8 +2,8 @@ package kr.co.jboard2.dto;
 
 public class TermsDTO {
 	
-	String terms;
-	String privacy;
+	private String terms;
+	private String privacy;
 	
 	
 	public String getTerms() {

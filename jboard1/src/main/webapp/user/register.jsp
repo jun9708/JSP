@@ -1,5 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="./_header.jsp" %>
+<%
+	Boolean agree = (Boolean) session.getAttribute("agrr");
+	
+	if(agree == null){
+		response.sendRedirect("/jboard1/user/terms.jsp");
+		return;
+	}
+%>
+
 <main>
     <section class="register">
         <form action="/jboard1/user/proc/registerProc.jsp" method="post">

@@ -14,6 +14,17 @@ public class ArticleDTO {
 	private String regip;
 	private String rdate;
 	
+	// 추가필드
+	private String nick;
+	
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	
+	
 	public int getNo() {
 		return no;
 	}
@@ -25,6 +36,9 @@ public class ArticleDTO {
 	}
 	public void setParent(int parent) {
 		this.parent = parent;
+	}
+	public void setParent(String parent) {
+		this.parent = Integer.parseInt(parent);
 	}
 	public int getComment() {
 		return comment;
@@ -77,6 +91,7 @@ public class ArticleDTO {
 	public String getRdate() {
 		return rdate;
 	}
+	
 	public void setRdate(String rdate) {
 		this.rdate = rdate;
 	}

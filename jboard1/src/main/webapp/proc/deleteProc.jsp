@@ -6,6 +6,6 @@
 	
 	ArticleDAO dao = ArticleDAO.getInstance();
 	dao.deleteArticle(no);
-	
+			
 	response.sendRedirect("/jboard1/list.jsp");
 %>

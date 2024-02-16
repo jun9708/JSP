@@ -8,6 +8,5 @@
 	ArticleDAO dao = ArticleDAO.getInstance();
 	dao.deleteComment(parent, no);
 	
-	response.sendRedirect("jboard1/view.jsp?no=n" +parent);
-
+	response.sendRedirect("/jboard1/view.jsp?no="+parent);
 %>

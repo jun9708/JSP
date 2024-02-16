@@ -1,14 +1,6 @@
 package kr.co.jboard1.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 import kr.co.jboard1.db.DBHelper;
 import kr.co.jboard1.db.SQL;
@@ -37,7 +29,7 @@ public class UserDAO extends DBHelper {
 			psmt.setString(5, user.getEmail());
 			psmt.setString(6, user.getHp());
 			psmt.setString(7, user.getRegip());
-			
+			psmt.setString(8, user.getSms());
 			psmt.executeUpdate();
 			closeAll();
 			
@@ -63,6 +55,40 @@ public class UserDAO extends DBHelper {
 	}
 	
 	// 사용자 정의 CRUD 메서드
+	public int selectCountUser(String type, String value) {
+		
+		StringBuilder sql = new StringBuilder(SQL.SELECT_COUNT_USER);
+		
+		if(type.equals("uid")) {
+			sql.append(SQL.WHERE_UID);
+		}else if(type.equals("nick")){
+			sql.append(SQL.WHERE_NICK);			
+		}else if(type.equals("email")){
+			sql.append(SQL.WHERE_EMAIL);			
+		}else if(type.equals("hp")){
+			sql.append(SQL.WHERE_HP);
+		}
+		
+		int result = 0;
+		
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(sql.toString());
+			psmt.setString(1, value);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			closeAll();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	public UserDTO selectUserForLogin(String uid, String pass) {
 		
 		UserDTO user = null;
@@ -117,6 +143,7 @@ public class UserDAO extends DBHelper {
 				terms = new TermsDTO();
 				terms.setTerms(rs.getString(1));
 				terms.setPrivacy(rs.getString(2));
+				terms.setSms(rs.getString(3));
 			}
 			
 			closeAll();
@@ -126,6 +153,5 @@ public class UserDAO extends DBHelper {
 		}
 		return terms;
 	}
-	
 	
 }

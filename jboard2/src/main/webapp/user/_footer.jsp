@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
         <footer>
-            <p>ⓒcopyright 김철학.com</p>
+            <p>ⓒCopyright chhak.or.kr</p>
         </footer>
-    </div>
+    </div>    
 </body>
 </html>

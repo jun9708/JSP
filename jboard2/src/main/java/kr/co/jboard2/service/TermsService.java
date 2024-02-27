@@ -7,17 +7,18 @@ import kr.co.jboard2.dao.TermsDAO;
 import kr.co.jboard2.dto.TermsDTO;
 
 public class TermsService {
+
+	// Singleton
 	private static TermsService instance = new TermsService();
 	public static TermsService getInstance() {
 		return instance;
 	}
-	
 	private TermsService() {}
 	
-	//Logger
+	// Logger
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
-	//DAO
+	// DAO
 	private TermsDAO dao = TermsDAO.getInstance();
 	
 	public void insertTerms() {

@@ -62,3 +62,15 @@ public class TermsController extends HttpServlet {
 		resp.sendRedirect("/jboard2/user/register.do");
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+

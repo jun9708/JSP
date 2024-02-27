@@ -67,3 +67,11 @@ public class RegisterController extends HttpServlet {
 		resp.sendRedirect("/jboard2/user/login.do");
 	}
 }
+
+
+
+
+
+
+
+

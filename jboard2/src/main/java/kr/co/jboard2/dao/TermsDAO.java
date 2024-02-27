@@ -49,3 +49,11 @@ public class TermsDAO extends DBHelper {
 	public void deleteTerms() {}
 
 }
+
+
+
+
+
+
+
+
